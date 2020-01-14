@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -80,6 +81,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+
+        //TextView Scroll
+        TextView textView = findViewById(R.id.recognised_text_text_view);
+        textView.setMovementMethod(new ScrollingMovementMethod());
     }
 
     @Override
@@ -87,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser==null){
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            finish();
+//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//            finish();
         }
     }
 
