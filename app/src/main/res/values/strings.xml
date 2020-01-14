@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EASI</string>
+    <string name="listen">LISTEN</string>
+    <string name="sign_title">Sign Title</string>
+    <string name="add_sign">ADD SIGN</string>
+    <string name="recognised_text_to_be_shown_here">Recognised text to be shown here</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up_instead">Sign Up Instead</string>
+</resources>
