@@ -2,8 +2,8 @@
 * A communication application to help the deaf
 
 ## Login Screen 
-[/1.jepeg]
+![Login Screenshot](https://github.com/AryamanAgrawal/EASI/blob/master/1.jpeg)
 
 ## EASI Tool
-[/2.jepeg]
+![EASI Screenshot](https://github.com/AryamanAgrawal/EASI/blob/master/2.jpeg)
 
