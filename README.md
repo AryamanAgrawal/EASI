@@ -1,9 +1,8 @@
 # EASI
 * A communication application to help the deaf
 
-## Login Screen 
-![Login Screenshot](https://github.com/AryamanAgrawal/EASI/blob/master/1.jpeg)
+## Screenshots 
+![Login Screenshot](https://github.com/AryamanAgrawal/EASI/blob/master/1.jpeg = 1440 x 2880) ![EASI Screenshot](https://github.com/AryamanAgrawal/EASI/blob/master/2.jpeg = 1440 x 2880)
 
-## EASI Tool
-![EASI Screenshot](https://github.com/AryamanAgrawal/EASI/blob/master/2.jpeg)
+
 
