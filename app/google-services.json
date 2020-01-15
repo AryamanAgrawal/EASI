@@ -47,7 +47,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:862717728283:android:14d67930010a1ce2128abe",
         "android_client_info": {
-          "package_name": "io.github.padamchopra.easi"
+          "package_name": "io.github.padamchopra.EASI"
         }
       },
       "oauth_client": [
@@ -55,7 +55,7 @@
           "client_id": "862717728283-kfronbg3gi1ougod8avo3q4alnbn59u0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "io.github.padamchopra.easi",
+            "package_name": "io.github.padamchopra.EASI",
             "certificate_hash": "74031f0ee4530498a125f0e45ee7cb43fc9c6453"
           }
         },

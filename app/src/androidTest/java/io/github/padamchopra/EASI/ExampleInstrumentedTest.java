@@ -1,4 +1,4 @@
-package io.github.padamchopra.easi;
+package io.github.padamchopra.EASI;
 
 import android.content.Context;
 

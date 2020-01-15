@@ -1,8 +1,9 @@
-package io.github.padamchopra.easi;
+package io.github.padamchopra.EASI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GestureDetectorCompat;
 
 import android.Manifest;
 import android.content.Context;
@@ -16,6 +17,8 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.text.method.ScrollingMovementMethod;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -32,10 +35,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
     public SharedPreferences sharedPreferences;
     public SharedPreferences.Editor editor;
@@ -47,12 +49,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public int videoIndex;
     public boolean alreadyStartedVideos;
     private FirebaseAuth mAuth;
+    GestureDetectorCompat gestureDetectorCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        this.gestureDetectorCompat = new GestureDetectorCompat(this, this);
 
         //ask permission
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 2);
@@ -92,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser==null){
-//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-//            finish();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
         }
     }
 
@@ -399,9 +404,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+    @Override
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        this.gestureDetectorCompat.onTouchEvent(motionEvent);
+        return super.onTouchEvent(motionEvent);
+    }
 
     @Override
-    public void onClick(View view) {
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
 
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        if (e2.getY() - e1.getY() > 50) {
+            //swipe down
+            System.out.println("down");
+            startListening(null);
+
+            return true;
+        } else if (e2.getX() - e1.getX() > 50) {
+            //swipe right
+            System.out.println("right");
+            return true;
+        } else if (e1.getX() - e2.getX() > 50) {
+            //swipe left
+            System.out.println("left");
+            return true;
+        } else {
+            return false;
+        }
     }
 }
